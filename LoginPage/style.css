@@ -95,6 +95,30 @@ form .input-field:first-child {
     color: rgba(0, 0, 0, 0.5);
 }
 
+.login-options a {
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 1rem;
+    font-size: 0.75rem; 
+}
+
+.login-options a:last-child{
+    padding-left: 0.50rem;
+}
+
+.login-options a::before {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 25px;
+    bottom: 3px;
+    left: 0;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #8e2de2, #4a00e0);
+}
+
 form input[type="submit"] {
     margin-top: 2rem;
     padding: 0.4rem;
