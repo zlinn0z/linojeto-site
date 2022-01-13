@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "eMV1CxQcaz7WfDiog+QjkZpx6U0WNMx6RTe7A+oplrO7Xw8efyrCxniwRxzqkh3r8xli7ZRYL/p3hpHvL3qmkQ==",
+  "success": true,
+  "projectFilePath": "C:\\Linojeto\\linojeto-site\\Server\\Linojeto\\Linojeto.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lino\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Lino\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Lino\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\Lino\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\Lino\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\Lino\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}
