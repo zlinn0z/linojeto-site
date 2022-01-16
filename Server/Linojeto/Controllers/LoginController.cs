@@ -1,4 +1,9 @@
 ﻿using Linojeto.Dtos;
+using Linojeto.Models;
+using Linojeto.Repository;
+using Linojeto.Services;
+using Linojeto.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -11,20 +16,19 @@ namespace Linojeto.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class LoginController : ControllerBase
+    public class LoginController : BaseController
     {
         private readonly ILogger<LoginController> _logger;
+        private readonly IUserRepository _usuarioRepository;
 
-        private readonly string loginTeste = "admin@admin.com";
-        private readonly string senhaTeste = "Admin1234@";
-
-
-        public LoginController(ILogger<LoginController> logger)
+        public LoginController(ILogger<LoginController> logger, IUserRepository usuarioRepository)
         {
             _logger = logger;
+            _usuarioRepository = usuarioRepository;
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public IActionResult EfetuarLogin([FromBody] LoginRequisicaoDto requisicao)
         {
             try
@@ -38,11 +42,25 @@ namespace Linojeto.Controllers
                     });
                 }
 
+                var usuario = _usuarioRepository.GetUserByLoginPassword(requisicao.Login, MD5Utils.GenerateHashMD5(requisicao.Senha));
+
+                if(usuario == null)
+                {
+                    return BadRequest(new ErrorLogsDto()
+                    {
+                        Status = StatusCodes.Status400BadRequest,
+                        Error = "Usuário ou senha inválidos!"
+                    });
+                }
+
+                var token = TokenService.GenerateToken(usuario);
+
+
                 return Ok(new LoginRespostaDto()
                 {
-                    Email = loginTeste,
-                    Name = "Usuário de Teste",
-                    Token = ""
+                    Email = usuario.Email,
+                    Name = usuario.Nome,
+                    Token = token
                 });
             }
             catch(Exception e)
