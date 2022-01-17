@@ -34,7 +34,7 @@ namespace Linojeto.Controllers
             try
             {
                 var erros = new List<string>();
-                if(string.IsNullOrEmpty(usuario.Nome) || string.IsNullOrWhiteSpace(usuario.Nome) || usuario.Nome.Length <= 2)
+                if(string.IsNullOrEmpty(usuario.Nome) || string.IsNullOrWhiteSpace(usuario.Nome) || usuario.Nome.Length < 2)
                 {
                     erros.Add("Nome inválido");
                 }

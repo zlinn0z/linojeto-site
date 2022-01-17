@@ -10,6 +10,6 @@ namespace Linojeto.Repository
     {
         public void Save(Usuario usuario);
         bool HasUserByEmail(string email);
-        Usuario GetUserByLoginPassword(string login, string v);
+        Usuario GetUserByLoginPassword(string login, string senha);
     }
 }
