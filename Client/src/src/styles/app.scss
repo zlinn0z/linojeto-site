@@ -3,11 +3,6 @@
 @import './config.scss';
 @import './login.scss';
 
-@font-face {
-    font-family: "Poppins", sans-serif;
-    src: url();
-}
-
 html {
     height: 100%;
     font-family: "Poppins", sans-serif;
@@ -29,3 +24,4 @@ body {
     align-items: center;
     padding: 0px;
 }
+

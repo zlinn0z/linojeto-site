@@ -1,21 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
+import lock from "../assets/icones/lock.svg";
+import user from "../assets/icones/user.svg";
+import { Input } from "../components/Input.js";
+
 
 export const Login = () => {
+
+    const [login, setLogin] = useState('');
+    const [senha, setSenha] = useState('');
+    const [isLoading, setLoading] = useState(false);
+
+    const executeLogin = evento => {
+        evento.preventDefault();
+        setLoading(true);
+        console.log('login', login)
+        console.log('senha', senha)
+
+        setTimeout(() => {
+            setLoading(false);
+        }, 3000)
+    }
+
     return (
         <main className="container">
             <div>
                 <h2>Login</h2>
                 <form action="">
-                    <div className="input-field">
-                        <input type="text" name="login" placeholder="Informe seu usuário" />
-                        <div className="underline"></div>
-                    </div>
-                    <div className="input-field">
-                        <input type="password" name="password" placeholder="Informe sua senha" />
-                        <div className="underline"></div>
-                    </div>
-                    
-                    <button>Entrar</button>
+                    <Input
+                        srcImg={user}
+                        altImg={"Ícone usuário"}
+                        inputType="text"
+                        inputName="login"
+                        inputPlaceholder="Informe seu usuário"
+                        value={login}
+                        setValue={setLogin}
+                    />
+                    <Input
+                        srcImg={lock}
+                        altImg={"Ícone senha"}
+                        inputType="password"
+                        inputName="password"
+                        inputPlaceholder="Informe sua senha"
+                        value={senha}
+                        setValue={setSenha}
+                    />              
+                    <button onClick={executeLogin} disabled={isLoading}>{isLoading === true ? '...Carregando' : 'Entrar'}</button>
                 </form>
             </div>
             <div className="footer">
