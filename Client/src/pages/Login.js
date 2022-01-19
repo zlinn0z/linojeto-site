@@ -2,30 +2,48 @@ import React, { useState } from "react";
 import lock from "../assets/icones/lock.svg";
 import user from "../assets/icones/user.svg";
 import { Input } from "../components/Input.js";
+import { executeReq } from "../services/api";
 
 
-export const Login = () => {
+export const Login = props => {
 
     const [login, setLogin] = useState('');
     const [senha, setSenha] = useState('');
+    const [msgError, setMsgError] = useState('');
     const [isLoading, setLoading] = useState(false);
 
-    const executeLogin = evento => {
-        evento.preventDefault();
-        setLoading(true);
-        console.log('login', login)
-        console.log('senha', senha)
+    const executeLogin = async evento => {
+        try {
+            evento.preventDefault();
+            setLoading(true);
+        
+            const body = {
+                login, 
+                senha
+            };
 
-        setTimeout(() => {
-            setLoading(false);
-        }, 3000)
+            const resultado = await executeReq('login', 'POST', body);
+            if(resultado?.data?.token){
+                localStorage.setItem('accessToken', resultado.data.token);
+                localStorage.setItem('usuarioNome', resultado.data.name);
+                localStorage.setItem('usuarioEmail', resultado.data.email);
+                props.setAccessToken(resultado.data.token);
+            }
+        }catch(e) {
+            console.log(e);
+            if(e?.response?.data?.error){
+                setMsgError(e.response.data.error);
+            }
+        }
+        setLoading(false);
     }
 
     return (
         <main className="container">
             <div>
                 <h2>Login</h2>
-                <form action="">
+                <form>
+                    {msgError && <p>{msgError}</p>}
                     <Input
                         srcImg={user}
                         altImg={"Ícone usuário"}

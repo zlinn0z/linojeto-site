@@ -25,6 +25,13 @@ body {
             border-radius: 8px;
             background: linear-gradient(45deg, #8e2de2, #4a00e0);
         }
+
+        p {
+            max-width: 480px;
+            text-align: center;
+            color: $errorColor;
+            font-weight: bold;
+        }
     
         button {
             width: 100%;

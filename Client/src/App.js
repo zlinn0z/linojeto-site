@@ -1,10 +1,23 @@
+import {Routes, Route} from 'react-router-dom';
 import './styles/app.scss';
 import { Login } from './pages/Login';
+import { Home } from './pages/Home';
+import { useState } from 'react';
 
 function App(){
+
+    const [accessToken, setAccessToken] = useState(localStorage.getItem('accessToken'));
+
     return(
-        <Login />
+        <Routes>
+            {!accessToken ?
+            <Route path="*" element={<Login setAccessToken={setAccessToken}/>} />
+            :
+            <Route path="*" element={<Home setAccessToken={setAccessToken}/>} />
+            }
+        </Routes>                           
     );
 }
 
 export default App;
+
