@@ -4,7 +4,6 @@ import user from "../assets/icones/user.svg";
 import { Input } from "../components/Input.js";
 import { executeReq } from "../services/api";
 
-
 export const Login = props => {
 
     const [login, setLogin] = useState('');
@@ -28,6 +27,22 @@ export const Login = props => {
                 localStorage.setItem('usuarioNome', resultado.data.name);
                 localStorage.setItem('usuarioEmail', resultado.data.email);
                 props.setAccessToken(resultado.data.token);
+
+                /*switch(login){
+                    case "leskagamer@admin.com":
+                        alert('Olá amiga da vizinhança!')
+                        break;
+                    case "nedstark15@admin.com":
+                        alert('Está entrando a melhor Sona desse Brasil!!')
+                        break;
+                    case "gprime@admin.com":
+                        alert('Busquem conhecimento!')
+                        break;
+                    case "k4rui@admin.com":
+                        alert('Parabéns, você acabou de derrubar o site por 600s!!!')
+                        break;
+                    default:
+                }*/
             }
         }catch(e) {
             console.log(e);
