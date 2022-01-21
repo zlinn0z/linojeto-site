@@ -1,116 +1,122 @@
 @import './config.scss';
 
-body {
-    main.container {
-        background: white;
-        max-width: 400px;
-        min-height: 40vh;
-        padding: 2rem;
+
+main.container {
+    background: white;
+    max-width: 400px;
+    min-height: 40vh;
+    padding: 2rem;
+    border-radius: 8px;
+    
+    h2 {
+        font-weight: 600;
+        margin-bottom: 2rem;
+        margin-left: 0.7rem;
+        position: relative;
+    }
+
+    h2::before {
+        content: '';
+        position: absolute;
+        height: 4px;
+        width: 25px;
+        bottom: 3px;
+        left: 0;
         border-radius: 8px;
-        
-        h2 {
-            font-weight: 600;
-            margin-bottom: 2rem;
-            margin-left: 0.7rem;
-            position: relative;
-        }
-    
-        h2::before {
-            content: '';
-            position: absolute;
-            height: 4px;
-            width: 25px;
-            bottom: 3px;
-            left: 0;
-            border-radius: 8px;
-            background: linear-gradient(45deg, #8e2de2, #4a00e0);
-        }
-
-        p {
-            max-width: 480px;
-            text-align: center;
-            color: $errorColor;
-            font-weight: bold;
-        }
-    
-        button {
-            width: 100%;
-            height: 50px;
-            padding: 0.4rem;
-            background: linear-gradient(to left, #4776E6, #8e54e9);
-            color: white;
-            font-size: 17px;
-            font-weight: 500;
-            border-radius: 4px;
-            border-width: 0px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-    
-        button:hover {
-            letter-spacing: 0.5px;
-            background: linear-gradient(to right, #4776E6, #8e54e9);
-        }
-    
-        .input-field {
-            display: flex;
-            flex-direction: row;
-            padding: 10px;
-    
-            img{
-                margin-right: 10px;
-                margin-bottom: 15px;
-                width: 25px;
-                
-            }
-    
-            input {
-                margin-bottom: 18px;
-                font-size: 16px;
-                display: flex;
-                align-items: center;
-                letter-spacing: 0.01em;
-                color: linear-gradient(45deg, #8e2de2, #4a00e0);
-                width: 100%;
-                border-radius: 0px;
-                padding-bottom: 7px;
-    
-                border-top-width: 0px;
-                border-left-width: 0px;
-                border-right-width: 0px;
-                border-color: rgba(0, 0, 0, 0.2);
-                border-bottom-width: 0.1em;
-    
-                outline: none;
-    
-                &:focus {
-                    border-color: linear-gradient(45deg, #8e2de2, #4a00e0);
-                }
-    
-                &::placeholder {
-                    color: rgba(0, 0, 0, 0.2);
-                    opacity: 1;
-                }
-            }
-        }
-    
-        .footer {
-            display: flex;
-            flex-direction: column;
-            margin-top: 1rem;
-    
-            span {
-                color: rgba(0, 0, 0, 0.7);
-                font-size: 0.8rem;
-                text-align: center;
-            }
-        }
-    }
-}
-
-@media screen and (min-width:992px) {
-    body{
         background: linear-gradient(45deg, #8e2de2, #4a00e0);
-        background-repeat: no-repeat;
+    }
+
+    p {
+        text-align: center;
+        color: $errorColor;
+        font-weight: bold;
+    }
+
+    button {
+        width: 100%;
+        height: 50px;
+        padding: 0.4rem;
+        background: linear-gradient(to left, #4776E6, #8e54e9);
+        color: white;
+        font-size: 17px;
+        font-weight: 500;
+        border-radius: 4px;
+        border-width: 0px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    button:hover {
+        letter-spacing: 0.5px;
+        background: linear-gradient(to right, #4776E6, #8e54e9);
+    }
+
+    .input-field {
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+
+        img{
+            margin-right: 10px;
+            margin-bottom: 15px;
+            width: 25px;
+            
+        }
+
+        input {
+            margin-bottom: 18px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.01em;
+            color: $primaryColor;
+            width: 100%;
+            border-radius: 0px;
+            padding-bottom: 7px;
+
+            border-top-width: 0px;
+            border-left-width: 0px;
+            border-right-width: 0px;
+            border-color: $mediumGreyColor;
+            border-bottom-width: 0.1em;
+            transition: all 0.3s ease-in-out;
+
+            outline: none;
+
+            &:focus {
+                border-color: $primaryColor;
+            }
+
+            &::placeholder {
+                color: $mediumGreyColor;
+                opacity: 1;
+            }
+
+            &:-ms-input-placeholder {
+                color: $mediumGreyColor;
+            }
+
+            &::-ms-input-placeholder {
+                color: $mediumGreyColor;
+            }
+        }
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+
+        span {
+            margin-top: 1rem;
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 1rem;
+            text-align: center;
+        }
     }
 }
+
+@media screen and (min-width:992px){
+
+}
+

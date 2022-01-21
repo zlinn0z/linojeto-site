@@ -21,39 +21,25 @@ export const Login = props => {
                 senha
             };
 
-            const resultado = await executeReq('login', 'POST', body);
-            if(resultado?.data?.token){
-                localStorage.setItem('accessToken', resultado.data.token);
-                localStorage.setItem('usuarioNome', resultado.data.name);
-                localStorage.setItem('usuarioEmail', resultado.data.email);
-                props.setAccessToken(resultado.data.token);
-
-                /*switch(login){
-                    case "leskagamer@admin.com":
-                        alert('Olá amiga da vizinhança!')
-                        break;
-                    case "nedstark15@admin.com":
-                        alert('Está entrando a melhor Sona desse Brasil!!')
-                        break;
-                    case "gprime@admin.com":
-                        alert('Busquem conhecimento!')
-                        break;
-                    case "k4rui@admin.com":
-                        alert('Parabéns, você acabou de derrubar o site por 600s!!!')
-                        break;
-                    default:
-                }*/
+            const result = await executeReq('login', 'POST', body);
+            if(result?.data?.token){
+                localStorage.setItem('accessToken', result.data.token);
+                localStorage.setItem('usuarioNome', result.data.name);
+                localStorage.setItem('usuarioEmail', result.data.email);
+                props.setAccessToken(result.data.token);
             }
         }catch(e) {
             console.log(e);
             if(e?.response?.data?.error){
                 setMsgError(e.response.data.error);
+            } else {
+                setMsgError('Não foi possível efetuar o login, fale com o suporte.')
             }
         }
         setLoading(false);
     }
 
-    return (
+    return (     
         <main className="container">
             <div>
                 <h2>Login</h2>
@@ -82,20 +68,6 @@ export const Login = props => {
             </div>
             <div className="footer">
                 <span>Ou conecte com as Redes Sociais</span>
-                <div className="social-fields">
-                    <div className="social-field twitter">
-                        <a href="https://twitter.com/">
-                            <i className="fab fa-twitter"></i>
-                        Conecte-se com o Twitter
-                        </a>
-                    </div>
-                    <div className="social-field facebook">
-                        <a href="https://www.facebook.com/">
-                            <i className="fab fa-facebook-f"></i>
-                        Conecte-se com o Facebook
-                        </a>
-                    </div>
-                </div>
             </div>
         </main>
     );

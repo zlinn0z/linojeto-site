@@ -1,5 +1,7 @@
 @import './config.scss';
 
+
+
 .container-header {
     display: flex;
     flex-direction: row;
@@ -46,10 +48,6 @@
 
     @media screen and (min-width:992px) {
         
-        #root {
-            background-color: white;
-        }
-
         .mobile {
             display: none;
         }

@@ -1,0 +1,72 @@
+@import './config.scss';
+
+.container-filter {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    background: $lightGreyColor;
+    border-radius: 12px;
+    padding: 10px;
+
+    .title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        span {
+            font-size: 18px;
+            letter-spacing: 0.01em;
+            color: $primaryColor;
+            font-weight: bold;
+        }
+
+        img {
+            width: 30px;
+            cursor: pointer;
+        }
+
+        .form {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width:992px) {
+        padding: 20px;
+
+        .title {
+
+            img {
+                display: none;
+            }
+
+            .form {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+
+                input, select {
+                    border-color: $primaryColor;
+                }
+                label {
+                    color: $primaryColor;
+                    font-size: 16px;
+                    margin-right: 10px;
+                    margin-left: 10px;
+                    margin-bottom: 0px;
+                }
+
+                .line {
+                    border-color: $secondaryColor;
+                    border-width: 1px;
+                    border-style: solid;
+                    height: 40px;
+                    width: 0px;
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+}
