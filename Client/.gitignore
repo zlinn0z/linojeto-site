@@ -23,5 +23,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+#Back-end
+../Server/Linojeto/bin/Debug/
+../Server/Linojeto/obj/Debug/
+
+
+
+
 
 

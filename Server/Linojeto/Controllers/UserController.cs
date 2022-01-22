@@ -53,6 +53,7 @@ namespace Linojeto.Controllers
                     erros.Add("Email inválido");
                 }
 
+                //TO DO -> Adicionar validação tanto de email quanto de usuário no cadastro
                 if (_usuarioRepository.HasUserByEmail(usuario.Email))
                 {
                     erros.Add("Já existe uma conta com o email informado");
